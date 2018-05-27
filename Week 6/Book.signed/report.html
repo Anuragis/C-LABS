@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta name="Submission" content="/tmp/codecheck/17100504024877502518225327072/submission"/>
+<meta name="Problem" content="17093021036ojjx46vmor05k6wbx2y3qnn"/>
+<meta name="Level" content="1"/>
+<meta name="Time" content="2017-10-05T04:02:56Z"/>
+<meta name="ID" content="Book"/>
+<meta name="Elapsed" content="6181 ms"/>
+<style type="text/css">
+.header {font-weight: bold; font-size: 1.2em; }
+.item {font-weight: bold;}
+.pass {color: green;}
+.fail {color: red;}
+.note {color: blue; font-weight: bold;}
+table.file td {padding-right: 1em; background: #FFF; }
+.linenumber {color: gray;}
+.footnote {font-size: 0.7em;}
+table {font-size: 0.9em;}
+td, th { background: #EEE; margin: 0.5em; padding: 0.25em;}
+table.output td {vertical-align: top;}
+div.footnotes { border-top: 1px solid gray; padding-top: 0.5em; }
+</style>
+<title>Report</title>
+</head>
+<body>
+<p class="header run">Testing BookApp.cpp</p>
+<div class="run">
+<pre class="output">
+</pre>
+<pre class="output">
++ Inserted at index 0: Book{ISBN=978-0130460417, last=Mak, first=Ronald, title=Java Number Cruncher, category=technical}
+
++ Inserted at index 1: Book{ISBN=978-1501163401, last=King, first=Stephen, title=Sleeping Beauties, category=fiction}
+
++ Inserted at index 1: Book{ISBN=978-0470383285, last=Horstmann, first=Cay, title=Big C++, category=technical}
+
++ Inserted at index 1: Book{ISBN=978-0470177075, last=Mak, first=Ronald, title=Writing Compilers, category=technical}
+
++ Inserted at index 3: Book{ISBN=978-0471744870, last=Horstmann, first=Cay, title=Object-Oriented Design, category=technical}
+
++ Inserted at index 4: Book{ISBN=978-1439156810, last=King, first=Stephen, title=On Writing - A Memoir of the Craft, category=history}
+
+?  All books in the catalog:
+Book{ISBN=978-0130460417, last=Mak, first=Ronald, title=Java Number Cruncher, category=technical}
+Book{ISBN=978-0470177075, last=Mak, first=Ronald, title=Writing Compilers, category=technical}
+Book{ISBN=978-0470383285, last=Horstmann, first=Cay, title=Big C++, category=technical}
+Book{ISBN=978-0471744870, last=Horstmann, first=Cay, title=Object-Oriented Design, category=technical}
+Book{ISBN=978-1439156810, last=King, first=Stephen, title=On Writing - A Memoir of the Craft, category=history}
+Book{ISBN=978-1501163401, last=King, first=Stephen, title=Sleeping Beauties, category=fiction}
+
+? Books by author Mak:
+Book{ISBN=978-0130460417, last=Mak, first=Ronald, title=Java Number Cruncher, category=technical}
+Book{ISBN=978-0470177075, last=Mak, first=Ronald, title=Writing Compilers, category=technical}
+
+? Books in category technical:
+Book{ISBN=978-0130460417, last=Mak, first=Ronald, title=Java Number Cruncher, category=technical}
+Book{ISBN=978-0470177075, last=Mak, first=Ronald, title=Writing Compilers, category=technical}
+Book{ISBN=978-0470383285, last=Horstmann, first=Cay, title=Big C++, category=technical}
+Book{ISBN=978-0471744870, last=Horstmann, first=Cay, title=Object-Oriented Design, category=technical}
+
+? Books in category fiction:
+Book{ISBN=978-1501163401, last=King, first=Stephen, title=Sleeping Beauties, category=fiction}
+
+? Book with ISBN 978-0470383285:
+Book{ISBN=978-0470383285, last=Horstmann, first=Cay, title=Big C++, category=technical}
+
++ Inserted at index 1: Book{ISBN=978-0470177075, last=Mak, first=Ronald, title=Writing Compilers, category=technical}
+*** Duplicate ISDN ***
+
+? Books in category history:
+Book{ISBN=978-1439156810, last=King, first=Stephen, title=On Writing - A Memoir of the Craft, category=history}
+
+? Books by author King:
+Book{ISBN=978-1439156810, last=King, first=Stephen, title=On Writing - A Memoir of the Craft, category=history}
+Book{ISBN=978-1501163401, last=King, first=Stephen, title=Sleeping Beauties, category=fiction}
+
+? Book with ISBN 978-0470385285:
+
+? Books by author Horstmann:
+Book{ISBN=978-0470383285, last=Horstmann, first=Cay, title=Big C++, category=technical}
+Book{ISBN=978-0471744870, last=Horstmann, first=Cay, title=Object-Oriented Design, category=technical}
+
+- Removed Book{ISBN=978-0130460417, last=Mak, first=Ronald, title=Java Number Cruncher, category=technical}
+
+$ *** Invalid command ***
+
+- Removed Book{ISBN=978-0471744870, last=Horstmann, first=Cay, title=Object-Oriented Design, category=technical}
+
+- Removed Book{ISBN=978-1439156811, last=, first=, title=, category=none}
+*** Book not found ***
+
+?  All books in the catalog:
+Book{ISBN=978-0470177075, last=Mak, first=Ronald, title=Writing Compilers, category=technical}
+Book{ISBN=978-0470383285, last=Horstmann, first=Cay, title=Big C++, category=technical}
+Book{ISBN=978-1439156810, last=King, first=Stephen, title=On Writing - A Memoir of the Craft, category=history}
+Book{ISBN=978-1501163401, last=King, first=Stephen, title=Sleeping Beauties, category=fiction}
+</pre>
+<span class="pass">pass </span></div>
+<p class="header studentFiles">Student files</p>
+<div class="studentFiles">
+<p class="caption">Book.cpp:</p>
+<pre>#include "Book.h"
+#include &lt;string&gt;
+#include&lt;fstream&gt;
+#include&lt;sstream&gt;
+#include&lt;iostream&gt;
+using namespace std;
+/***** Complete this file. *****/
+Book::Book():isbn(""),last(""), first(""), title(""), category(Category::NONE){}
+
+Book::Book(string isbn, string last, string first, string title, Category category){
+   this-&gt;isbn=isbn;
+   this-&gt;last=last;
+   this-&gt;first=first;
+   this-&gt;title=title;
+   this-&gt;category=category;
+}
+
+istream&amp; operator &gt;&gt;(istream&amp;  inp, Book &amp;book){
+   string ln;
+   getline(inp,ln);
+   istringstream in(ln);
+   
+   string isbn;
+   getline(in,isbn,',');
+   book.isbn=isbn;
+   
+   string last;
+   getline(in,last,',');
+   book.last=last;
+   
+   string first;
+   getline(in,first,',');
+   book.first=first;
+   
+   string title;
+   getline(in,title,',');
+   book.title=title;
+   
+   string cat;
+   getline(in,cat,',');
+   book.setCategory(cat);
+   inp&gt;&gt;ws;
+return inp;
+}
+
+ostream&amp; operator &lt;&lt;(ostream&amp;  out, Book &amp;book){
+   out&lt;&lt; "Book{ISBN="&lt;&lt;book.isbn&lt;&lt;", last="&lt;&lt;book.last&lt;&lt;", first="&lt;&lt;book.first&lt;&lt;", title="&lt;&lt;book.title&lt;&lt;", category="&lt;&lt;book.getCategory()&lt;&lt;"}"&lt;&lt;endl;
+
+   return out;
+}
+Book:: ~Book(){
+}
+
+void Book::setCategory(string &amp;input){
+
+   if(input == "technical")
+   {
+      category= Category::TECHNICAL;
+   }
+   if(input == "fiction"){
+      category= Category::FICTION;
+   }
+   if(input == "history"){
+      category= Category::HISTORY;
+   }
+   if(input == "none")
+   {
+      category= Category::NONE;
+   }
+}
+
+string Book::getCategory(){
+   if(category == Category::TECHNICAL){return "technical";}
+   if(category == Category::FICTION){return "fiction";}
+   if(category == Category::HISTORY){return "history";}
+   if(category == Category::NONE){
+      return "none";
+   }
+}
+
+string Book::getIsbn(){
+      return isbn;
+}
+   
+string Book::getLast(){
+   return last;
+}
+string Book::getFirst(){
+   return first;
+}
+string Book::getTitle(){
+   return title;
+}
+</pre>
+<p class="caption">Book.h:</p>
+<pre>#ifndef BOOK_H_
+#define BOOK_H_
+#include &lt;string&gt;
+using namespace std;
+
+/***** Complete this file. *****/
+
+/**
+ * The Book class.
+ */
+class Book
+{
+public:
+    /**
+     * Book categories.
+     */
+    enum class Category { FICTION, HISTORY, TECHNICAL, NONE };
+
+    /**
+     * Default constructor.
+     */
+    Book();
+
+    /**
+     * Constructor.
+     */
+    Book(string isbn, string last, string first, string title, Category category);
+
+    /**
+     * Destructor.
+     */
+    ~Book();
+    
+    /***** Complete the public members. *****/
+void setCategory(string&amp; input);
+string getIsbn();
+string getCategory();
+string getAuthor();
+string getLast();
+string getFirst();
+string getTitle();
+friend istream&amp; operator&gt;&gt;(istream&amp;  in, Book &amp;book);
+friend ostream&amp; operator &lt;&lt;(ostream&amp;  out, Book &amp;book);
+
+private:
+    string isbn;
+    string last;
+    string first;
+    string title;
+    Category category;
+    /***** Complete the private members. *****/
+};
+
+#endif /* EMPLOYEE_H_ */
+</pre>
+<p class="caption">BookApp.cpp:</p>
+<pre>#include "Book.h"
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;fstream&gt;
+#include &lt;string&gt;
+#include &lt;sstream&gt;
+/***** Complete this file. *****/
+
+using namespace std;
+
+// Status codes.
+enum class StatusCode {OK, DUPLICATE, NOT_FOUND, INVALID_COMMAND};
+
+/**
+ * Find the book in the catalog with the given ISBN.
+ * Use a binary search.
+ * @param isbn the ISBN.
+ * @param catalog the vector of book records.
+ * @return the vector index of the book if found, else return -1.
+ */
+void findISBN(vector&lt;Book&gt;&amp; catalog,string const &amp;isbn);
+ void insert(vector&lt;Book&gt;&amp; catalog,Book book);
+ void display(vector&lt;Book&gt;&amp; catalog);
+ void findAuthor(vector&lt;Book&gt;&amp; catalog, string const&amp;author);
+ void findCategory(vector&lt;Book&gt;&amp; catalog, string const&amp;category);
+ void remove(vector&lt;Book&gt;&amp; catalog,string const&amp;isbn);
+const string INPUT_FILE_NAME = "commands.in";
+
+/**
+ * The main. Open the command input file and loop to process commands.
+ */
+int main()
+{
+    // Open the input file.
+    ifstream input;
+    input.open(INPUT_FILE_NAME);
+    if (input.fail())
+    {
+        cout &lt;&lt; "Failed to open " &lt;&lt; INPUT_FILE_NAME &lt;&lt; endl;
+        return -1;
+    }
+
+    vector&lt;Book&gt; catalog;  // book catalog
+
+   char command;
+    input &gt;&gt; command;  // read the first command
+
+    /**
+     * Loop to read commands until the end of file.
+     */
+    Book book;
+    while (!input.fail())
+    {
+       cout&lt;&lt; endl &lt;&lt; command &lt;&lt;" ";
+       if(command=='+'){
+            input&gt;&gt;ws&gt;&gt;book;
+            insert(catalog,book);
+       }else if(command=='?'){
+          //display(catalog);
+          string s;
+          getline(input, s);
+          if(s.length()==0){
+             display(catalog);
+          }else{
+            istringstream in(s);
+            getline(in, s,'=');
+            if(s.substr(1)=="author"){
+                getline(in, s,'=');
+               findAuthor(catalog,s);
+            }else if(s.substr(1)=="category"){
+               getline(in, s,'=');
+               findCategory(catalog, s);
+            }else if(s.substr(1)=="isbn"){
+               getline(in, s,'=');
+               findISBN(catalog,s);
+            }
+          }
+       }else if(command=='-'){
+          string r;
+          getline(input,r);
+          remove(catalog,r.substr(1));
+       }else{
+          string invalid;
+          cout&lt;&lt;"*** Invalid command ***"&lt;&lt;endl;
+          getline(input,invalid);
+       }
+        /*** Complete this main. *****/
+        input&gt;&gt;command;
+    }
+
+    return 0;
+}
+ void insert(vector&lt;Book&gt;&amp; catalog,Book book){
+                if(catalog.size()==0){
+               catalog.push_back(book);
+               cout&lt;&lt;"Inserted at index 0: "&lt;&lt;book;   
+            }else{
+               bool isInserted=false;
+               int i;
+               for(i=0;i&lt;catalog.size();i++){
+                  
+                  if(catalog[i].getIsbn()==book.getIsbn()){
+                     cout&lt;&lt;"Inserted at index "&lt;&lt;i&lt;&lt;": "&lt;&lt;book;
+                     cout&lt;&lt;"*** Duplicate ISDN ***"&lt;&lt;endl;
+                     isInserted=true;
+                     break;
+                  }
+                  if(catalog[i].getIsbn()&gt;book.getIsbn()){
+                     catalog.insert(catalog.begin() + i, book);
+                     cout&lt;&lt;"Inserted at index "&lt;&lt;i&lt;&lt;": "&lt;&lt;book;
+                     isInserted=true;
+                     break;
+                  }
+                  
+               }
+               if(!isInserted){
+                     catalog.push_back(book);
+                     cout&lt;&lt;"Inserted at index "&lt;&lt;i&lt;&lt;": "&lt;&lt;book;
+                  }
+            }
+ }
+ void remove(vector&lt;Book&gt;&amp; catalog,string const&amp;isbn)
+ {
+    int low=0;
+    int mid;
+    int high=catalog.size()-1;
+    bool found=false;
+    
+    while(low&lt;high){
+       mid=(low+high)/2;
+       if(catalog[mid].getIsbn()==isbn){
+          found=true;
+          break;
+       }else if(catalog[mid].getIsbn()&gt;isbn){
+          high=mid-1;
+       }else{
+          low=mid+1;
+       }
+    }
+    
+    if(!found){
+       cout&lt;&lt;"Removed Book{ISBN="&lt;&lt;isbn&lt;&lt;", last=, first=, title=, category=none}"&lt;&lt;endl;
+       cout&lt;&lt;"*** Book not found ***"&lt;&lt;endl;
+    }else{
+       cout&lt;&lt;"Removed "&lt;&lt;catalog[mid];
+       catalog.erase(catalog.begin()+mid);
+    }
+ }
+ void display(vector&lt;Book&gt;&amp; catalog){
+    cout&lt;&lt;" All books in the catalog:"&lt;&lt;endl;
+    for(int i=0;i&lt;catalog.size();i++){
+       cout&lt;&lt;catalog[i];
+       }
+   }
+ 
+ void findAuthor(vector&lt;Book&gt;&amp; catalog, string const&amp;author){
+    cout&lt;&lt;"Books by author "&lt;&lt;author&lt;&lt;":"&lt;&lt;endl;
+        for(int i=0;i&lt;catalog.size();i++){
+           if(catalog[i].getLast()==author){
+            cout&lt;&lt;catalog[i];
+           }
+       }
+ }
+
+ void findCategory(vector&lt;Book&gt;&amp; catalog, string const&amp;category){
+    cout&lt;&lt;"Books in category "&lt;&lt;category&lt;&lt;":"&lt;&lt;endl;
+        for(int i=0;i&lt;catalog.size();i++){
+           if(catalog[i].getCategory()==category){
+            cout&lt;&lt;catalog[i];
+           }
+       }
+ }
+ 
+ void findISBN(vector&lt;Book&gt;&amp; catalog,string const &amp;isbn){
+    
+    int low=0;
+    int mid;
+    int high=catalog.size()-1;
+    cout&lt;&lt;"Book with ISBN "&lt;&lt;isbn&lt;&lt;":"&lt;&lt;endl;
+    while(low&lt;high){
+       mid=(low+high)/2;
+       if(catalog[mid].getIsbn()==isbn){
+          cout&lt;&lt;catalog[mid];
+          break;
+       }else if(catalog[mid].getIsbn()&gt;isbn){
+          high=mid-1;
+       }else{
+          low=mid+1;
+       }
+    }
+ }
+</pre>
+</div>
+<p class="header providedFiles">Provided files</p>
+<div class="providedFiles">
+<p class="caption">commands.in:</p>
+<pre>+ 978-0130460417,Mak,Ronald,Java Number Cruncher,technical
++ 978-1501163401,King,Stephen,Sleeping Beauties,fiction
++ 978-0470383285,Horstmann,Cay,Big C++,technical
++ 978-0470177075,Mak,Ronald,Writing Compilers,technical
++ 978-0471744870,Horstmann,Cay,Object-Oriented Design,technical
++ 978-1439156810,King,Stephen,On Writing - A Memoir of the Craft,history
+?
+? author=Mak
+? category=technical
+? category=fiction
+? isbn=978-0470383285
++ 978-0470177075,Mak,Ronald,Writing Compilers,technical
+? category=history
+? author=King
+? isbn=978-0470385285
+? author=Horstmann
+- 978-0130460417
+$ 978-1439156810
+- 978-0471744870
+- 978-1439156811
+?
+</pre>
+</div>
+<p class="header score">Score</p>
+<div class="score">
+<p class="score">1/1</p>
+</div>
+<div class="footnotes"><div class="footnote">2017-10-05T04:02:56Z</div>
+</div>
+</body></html>

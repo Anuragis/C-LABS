@@ -1,0 +1,61 @@
+#include "MoneyMarketAccount.h"
+#include <iostream>
+using namespace std;
+
+MoneyMarketAccount::MoneyMarketAccount()
+{
+   balance = 0;
+   transactions = 0;
+   monthlybalancezero = balance;
+}
+
+/**
+   Gets the current balance.
+*/
+double MoneyMarketAccount::get_balance() const
+{
+   //cout<<"bal"<<transactions;
+   return balance;
+}
+
+/**
+   Deposits the given amount and deducts any transaction fees.
+*/
+void MoneyMarketAccount::deposit(double amount)
+{
+   balance += amount;
+   
+   if (amount <= 1000)
+   {
+      transactions++;
+      if(transactions>5)
+         balance -= 10;//std::cout<<"dcut"<<transactions<<endl;}
+   }
+   
+}
+
+/**
+   Withdraws the given amount and deducts any transaction fees.
+*/
+void MoneyMarketAccount::withdraw(double amount)
+{
+   balance -= amount;
+   transactions++;
+   if(transactions>5)
+      balance -= 10;//std::cout<<"wcut"<<transactions<<endl;}
+   if(balance<monthlybalancezero)
+      monthlybalancezero = balance;   
+}
+
+/**
+   Apply interest, reset month state.
+*/
+void MoneyMarketAccount::end_of_month()
+{
+   //cout<<"eom"<<transactions<<endl;
+   transactions = 0;
+   //cout<<"eom"<<transactions<<endl;
+   if(balance>0 && monthlybalancezero>0)
+      balance += monthlybalancezero * 0.005; // 0.5 percent
+   monthlybalancezero = balance;
+}

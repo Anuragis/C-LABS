@@ -1,0 +1,76 @@
+/**
+This program reads in the name of a file from stdin.
+Then it opens the file and reads all lines of the file.
+Each line has the form
+
+label     value
+
+The label is a nonempty string without spaces. The value
+is a floating-point number.
+
+Print out the label with the smallest and largest value,
+in a left-justified, field of width 50, followed by the value
+in a right-justified field of width 12, with two digits after
+the decimal point.
+*/
+
+#include <iostream>
+#include <iomanip>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	cout << "Input file:" << endl;
+	string input_file;
+	cin >> input_file;
+
+	ifstream in(input_file);
+
+	if (in.fail())
+	{
+		cout << "Failed to open " << input_file << endl;
+		return -1;
+	}
+
+	string largest_lbl;
+	string smallest_lbl;
+	string label;
+	double largest_value;
+	double smallest_value;
+	double value;
+	in.setf(ios::fixed);
+	in.setf(ios::showpoint);
+	in.precision(2);
+	
+	
+	in >> label >> value;
+	largest_value = value;
+	smallest_value = value;
+	
+	largest_lbl = label;
+	smallest_lbl = label;
+	while (in>> label >> value) {
+		if (value>largest_value) {
+			largest_lbl = label;
+			largest_value = value;
+		}
+
+		if (value<smallest_value) {
+			smallest_lbl = label;
+			smallest_value = value;
+		}
+	}
+
+	cout.setf(ios::fixed);
+	cout.setf(ios::showpoint);
+	cout.precision(2);
+	std::cout.width(50); std::cout << std::left << smallest_lbl;
+	std::cout.width(12); std::cout << std::right << smallest_value<<endl;
+	std::cout.width(50); std::cout << std::left << largest_lbl;
+	std::cout.width(12); std::cout << std::right << largest_value<<endl;
+	in.close();
+	return 0;
+}

@@ -1,0 +1,57 @@
+bool isunique = true;
+	int unique_m(0), unique_n(0);
+
+	int inner_counter=m;
+	int prod = 1;
+	while (m > 0) {
+		inner_counter /= 10;
+		while (inner_counter > 0) {
+			if (m % 10 == inner_counter % 10) {
+				isunique = false;
+			}
+			inner_counter /= 10;
+		}
+			if (isunique) {
+				unique_m = unique_m + prod*(m%10);
+				prod *= 10;
+				isunique = false;
+			}
+			m /= 10;
+			inner_counter = m;
+			isunique = true;
+	}
+
+	isunique = true;
+	inner_counter = n;
+	prod = 1;
+	while (n > 0) {
+		inner_counter /= 10;
+		while (inner_counter > 0) {
+			if (n % 10 == inner_counter % 10) {
+				isunique = false;
+			}
+			inner_counter /= 10;
+		}
+		if (isunique) {
+			unique_n = unique_n + prod*(n % 10);
+			prod *= 10;
+			isunique = false;
+		}
+		n /= 10;
+		inner_counter = n;
+		isunique = true;
+	}
+	
+	int temp_n = unique_n;
+	while (unique_m>0)
+	{
+		while (temp_n > 0) {
+			if (unique_m % 10 == temp_n % 10) {
+				result++;
+			}
+			temp_n /= 10;
+		}
+
+		temp_n = unique_n;
+		unique_m /= 10;
+	}

@@ -1,0 +1,35 @@
+int inner_counter = n;
+	int current_count = 1;
+	int freq = 1;
+	int freq_no = n % 10;
+	while (n > 0) {
+
+		inner_counter /= 10;
+		while (inner_counter > 0 && (inner_counter % 10 == n % 10)) {
+			current_count++;
+			inner_counter /= 10;
+		}
+
+		if (current_count >= freq) {
+			freq = current_count;
+			freq_no = n % 10;
+		}
+
+		if (current_count > 1) {
+			n = inner_counter;
+			current_count = 1;
+		}
+		else
+		{
+			n /= 10;
+			inner_counter = n;
+			current_count = 1;
+		}
+	}
+
+	int prod = 1;
+	while (freq > 0) {
+		result = result + freq_no*prod;
+		prod = prod * 10;
+		freq--;
+	}

@@ -1,0 +1,24 @@
+Used reserve_size() function before calling prepend and insertion.
+This reduces the unnecessay call to copy constructor and thus reduces the overhead.
+
+Graph nature
+
+For Prepend
+Vector: Increases exponentially as per size
+List: Remains constant
+
+For Append
+Vector: Increases linearly as per size
+List: Slowly increases linearly 
+
+For Get
+Vector: Remains constant
+List: Increases exponentially as per size
+
+For Remove
+Vector: Increases exponentially as per size
+List: Increases exponentially as per size
+
+For Insert
+Vector: Increases Linearly as per size
+List: Increases Linearly as per size

@@ -1,0 +1,48 @@
+Manifest-Version: 1.0
+Created-By: 1.8.0_151 (Oracle Corporation)
+
+Name: ShellSortSuboptimal.cpp
+SHA-256-Digest: Qz5iszy6+x05R37s+btIoLEbCzlLq1zc/OZbqLmFR+g=
+
+Name: codecheck.log
+SHA-256-Digest: vCt8jKh4OIOUMZaKYFZT8CZAQmsSbCVbE1Qw5G65Xuc=
+
+Name: InsertionSort.cpp
+SHA-256-Digest: TvLxdbf6XdLawRNjsP5rq/M/SXSaBQvFP86dMH1/BVg=
+
+Name: codecheck.out
+SHA-256-Digest: 47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
+
+Name: Node.cpp
+SHA-256-Digest: I0DS5JUnHFw02Pk77ioX5kBMsCRz+Ic+y/nYVjFd0Gs=
+
+Name: QuickSorter.cpp
+SHA-256-Digest: /K81h6WYgOWkSX7tY1OW8jBP9Axm9RWKJA7xdxxtKFc=
+
+Name: MergeSort.cpp
+SHA-256-Digest: 6zDTX54fTs4QFhfJMChRLbJDfBCQhyzkP1SmyryQ/4E=
+
+Name: Element.cpp
+SHA-256-Digest: il+X/L7O+ehV1fAdlkVfM6o/9+9Uw/7tuvq9NJIcSLw=
+
+Name: QuickSortOptimal.cpp
+SHA-256-Digest: MUhM6KBTcqrObw3cBnNJ4jaoFdYtnHk+EeBOzJHHp0M=
+
+Name: report.html
+SHA-256-Digest: LC6sIdhmkdFzdys6d6w8sePySilE3u5rymrHejrpxBM=
+
+Name: QuickSortSuboptimal.cpp
+SHA-256-Digest: /Ch/dVxrOem8iq5cdOkKy57enNiw/FUz0A4iP7m7EMM=
+
+Name: ShellSortOptimal.cpp
+SHA-256-Digest: 4h0TV067KIb+8+ivN6s+6s7hzf8CxnFahlBuQJ+I94E=
+
+Name: LinkedList.cpp
+SHA-256-Digest: z6jepERqxekzQbKWDgxhW3WEpeGrKQEm45wnqQTEOqo=
+
+Name: Node.h
+SHA-256-Digest: lzo0W629eYsobwnt8Q8DTt1XsMxOjCmJu+Yga9owMUw=
+
+Name: Element.h
+SHA-256-Digest: aTbEvNRaEKk9Zh/Uqagl8SUxXb39UK0K8FFAwk+eUz0=
+

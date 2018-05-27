@@ -1,0 +1,16 @@
+   int divide_counter = 1;
+   int temp = d;
+
+   while (temp > 0) {
+	   divide_counter*=10;
+	   temp /= 10;
+   }
+
+   int result = 0;
+   while (n > 0) {
+	   if (n%divide_counter == d) {
+		   result++;
+	   }
+
+	   n /= 10;
+   }

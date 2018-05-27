@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta name="Version" content="0.3"/>
+<meta name="Submission" content="/tmp/codecheck/17083115383048275837534016748"/>
+<meta name="Problem" content="17082218369vfzb082gwl1ggr02jbdp0cn6"/>
+<meta name="Level" content="1"/>
+<meta name="Time" content="2017-08-31T15:38:37Z"/>
+<meta name="ID" content="WateringPlans"/>
+<meta name="User" content="17083124271j79jdk6lelvim9yi8p0w2yey"/>
+<meta name="Elapsed" content="3518 ms"/>
+<style type="text/css">
+.header {font-weight: bold; font-size: 1.2em; }
+.item {font-weight: bold;}
+.pass {color: green;}
+.fail {color: red;}
+table.file td {padding-right: 1em; background: #FFF; }
+.linenumber {color: gray;}
+.footnote {font-size: 0.7em;}
+table {font-size: 0.9em;}
+td, th { background: #EEE; margin: 0.5em; padding: 0.25em;}
+table.output td {vertical-align: top;}
+div.footnotes { border-top: 1px solid gray; padding-top: 0.5em; }
+</style>
+<title>Report</title>
+</head>
+<body>
+<p class="header run">Testing WateringPlans.cpp</p>
+<pre class="output">
+==========================
+ Plan Near with 5 plants
+==========================
+
+Where      Cum. steps  Water amt.  Cum. step-units
+---------  ----------  ----------  ---------------
+Plant  1    1              3              3
+Plant  2    2              2              5
+Plant  3    3              1              6
+FAUCET      6              0              6
+Plant  4   10              3             18
+Plant  5   11              2             20
+FAUCET     16              1             25
+
+Plan Near: Total steps = 16, total step-units = 25
+
+=========================
+ Plan Far with 5 plants
+=========================
+
+Where      Cum. steps  Water amt.  Cum. step-units
+---------  ----------  ----------  ---------------
+Plant  5    5              3             15
+Plant  4    6              2             17
+Plant  3    7              1             18
+FAUCET     10              0             18
+Plant  2   12              3             24
+Plant  1   13              2             26
+FAUCET     14              1             27
+
+Plan Far: Total steps = 14, total step-units = 27
+
+*** With 5 plants, Plan Near is better with 2 fewer step-units.
+
+==========================
+ Plan Near with 6 plants
+==========================
+
+Where      Cum. steps  Water amt.  Cum. step-units
+---------  ----------  ----------  ---------------
+Plant  1    1              3              3
+Plant  2    2              2              5
+Plant  3    3              1              6
+FAUCET      6              0              6
+Plant  4   10              3             18
+Plant  5   11              2             20
+Plant  6   12              1             21
+FAUCET     18              0             21
+
+Plan Near: Total steps = 18, total step-units = 21
+
+=========================
+ Plan Far with 6 plants
+=========================
+
+Where      Cum. steps  Water amt.  Cum. step-units
+---------  ----------  ----------  ---------------
+Plant  6    6              3             18
+Plant  5    7              2             20
+Plant  4    8              1             21
+FAUCET     12              0             21
+Plant  3   15              3             30
+Plant  2   16              2             32
+Plant  1   17              1             33
+FAUCET     18              0             33
+
+Plan Far: Total steps = 18, total step-units = 33
+
+*** With 6 plants, Plan Near is better with 12 fewer step-units.
+
+==========================
+ Plan Near with 7 plants
+==========================
+
+Where      Cum. steps  Water amt.  Cum. step-units
+---------  ----------  ----------  ---------------
+Plant  1    1              3              3
+Plant  2    2              2              5
+Plant  3    3              1              6
+FAUCET      6              0              6
+Plant  4   10              3             18
+Plant  5   11              2             20
+Plant  6   12              1             21
+FAUCET     18              0             21
+Plant  7   25              3             42
+FAUCET     32              2             56
+
+Plan Near: Total steps = 32, total step-units = 56
+
+=========================
+ Plan Far with 7 plants
+=========================
+
+Where      Cum. steps  Water amt.  Cum. step-units
+---------  ----------  ----------  ---------------
+Plant  7    7              3             21
+Plant  6    8              2             23
+Plant  5    9              1             24
+FAUCET     14              0             24
+Plant  4   18              3             36
+Plant  3   19              2             38
+Plant  2   20              1             39
+FAUCET     22              0             39
+Plant  1   23              3             42
+FAUCET     24              2             44
+
+Plan Far: Total steps = 24, total step-units = 44
+
+*** With 7 plants, Plan Far is better with 12 fewer step-units.
+</pre>
+<span class="pass">pass </span><p class="header studentFiles">Student files</p>
+<p class="caption">WateringPlans.cpp:</p>
+<pre>#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;iomanip&gt;
+#include &lt;string&gt;
+
+using namespace std;
+
+/*** Complete this program. ***/
+
+int main()
+{
+	const int UNITS_PER_CAN = 3;
+	const string INPUT_FILE_NAME = "counts.txt";
+
+	ifstream input;
+	input.open(INPUT_FILE_NAME);
+	if (input.fail())
+	{
+	cout &lt;&lt; "Failed to open " &lt;&lt; INPUT_FILE_NAME &lt;&lt; endl;
+	return -1;
+	}
+
+	int plant_count(0);
+	// Loop once for each number of plants read from the input file.
+	// Stop when the number of plants is 0 or less.
+	// During each loop, simulate Plan Near and Plan Far.
+
+
+	do
+	{
+	input &gt;&gt; plant_count;
+	if(plant_count&gt;0){
+
+	// Plan Near
+	cout &lt;&lt; endl;
+	cout &lt;&lt; "==========================" &lt;&lt; endl;
+	cout &lt;&lt; " Plan Near with " &lt;&lt; plant_count &lt;&lt; " plants" &lt;&lt; endl;
+	cout &lt;&lt; "==========================" &lt;&lt; endl;
+	cout &lt;&lt; endl;
+	cout &lt;&lt; "Where      Cum. steps  Water amt.  Cum. step-units" &lt;&lt; endl;
+	cout &lt;&lt; "---------  ----------  ----------  ---------------" &lt;&lt; endl;
+
+	int cum_steps = 0;
+	int water_amt = UNITS_PER_CAN;
+	int near_cum_step_units = 0;
+	int temp_plant_count = plant_count;
+	int plants_no = 0;
+	int steps_taken = 0;
+
+	while (temp_plant_count &gt;= 0) {
+
+		if (water_amt &gt; 0 &amp;&amp; temp_plant_count&gt;0) {
+
+			steps_taken++;
+			plants_no++;
+			temp_plant_count--;
+
+			cum_steps += 1;
+			near_cum_step_units = near_cum_step_units + steps_taken*water_amt;
+
+			cout &lt;&lt; "Plant " &lt;&lt; setw(2) &lt;&lt; plants_no &lt;&lt; setw(5) &lt;&lt; cum_steps &lt;&lt; setw(15) &lt;&lt; water_amt &lt;&lt; setw(15) &lt;&lt; near_cum_step_units &lt;&lt; endl;
+		
+			water_amt--;
+			steps_taken = 0;
+		}
+		else {
+			
+			cum_steps = cum_steps + plants_no;
+			
+			cout &lt;&lt; "FAUCET" &lt;&lt; setw(7) &lt;&lt; cum_steps &lt;&lt; setw(15) &lt;&lt; water_amt &lt;&lt; setw(15) &lt;&lt; near_cum_step_units &lt;&lt; endl;
+			
+			cum_steps = cum_steps + plants_no;
+			water_amt = 3;
+			steps_taken = plants_no;
+		}
+
+		if (temp_plant_count == 0) {
+			
+			cum_steps = cum_steps + plants_no;
+			steps_taken = plants_no;
+			near_cum_step_units = near_cum_step_units + steps_taken*water_amt;
+			
+			cout &lt;&lt; "FAUCET" &lt;&lt; setw(7) &lt;&lt; cum_steps &lt;&lt; setw(15) &lt;&lt; water_amt &lt;&lt; setw(15) &lt;&lt; near_cum_step_units &lt;&lt; endl;
+			break;
+		}
+		
+	}
+	cout &lt;&lt; endl;
+	cout &lt;&lt; "Plan Near: " &lt;&lt; "Total steps = " &lt;&lt; cum_steps &lt;&lt; ", total step-units = " &lt;&lt; near_cum_step_units &lt;&lt; endl;
+
+	/*** Complete the code for Plan Near. ***/
+
+	// Plan Far
+	cout &lt;&lt; endl;
+	cout &lt;&lt; "=========================" &lt;&lt; endl;
+	cout &lt;&lt; " Plan Far with " &lt;&lt; plant_count &lt;&lt; " plants" &lt;&lt; endl;
+	cout &lt;&lt; "=========================" &lt;&lt; endl;
+	cout &lt;&lt; endl;
+	cout &lt;&lt; "Where      Cum. steps  Water amt.  Cum. step-units" &lt;&lt; endl;
+	cout &lt;&lt; "---------  ----------  ----------  ---------------" &lt;&lt; endl;
+
+	cum_steps = plant_count;
+	water_amt = UNITS_PER_CAN;
+	int far_cum_step_units = 0;
+	temp_plant_count = plant_count;
+	plants_no = plant_count;
+	steps_taken = plant_count;
+
+	while (temp_plant_count &gt;= 0)
+	{
+		if (water_amt &gt; 0 &amp;&amp; temp_plant_count&gt;0) {
+			
+			far_cum_step_units = far_cum_step_units + steps_taken*water_amt;
+			steps_taken=0;
+
+			cout &lt;&lt; "Plant " &lt;&lt; setw(2) &lt;&lt; plants_no &lt;&lt; setw(5) &lt;&lt; cum_steps &lt;&lt; setw(15) &lt;&lt; water_amt &lt;&lt; setw(15) &lt;&lt; far_cum_step_units &lt;&lt; endl;
+
+			plants_no--;
+			temp_plant_count--;
+			cum_steps += 1;
+			water_amt--;
+			steps_taken += 1;
+		}
+		else {
+			cum_steps = cum_steps + plants_no;
+
+			cout &lt;&lt; "FAUCET" &lt;&lt; setw(7) &lt;&lt; cum_steps &lt;&lt; setw(15) &lt;&lt; water_amt &lt;&lt; setw(15) &lt;&lt; far_cum_step_units &lt;&lt; endl;
+
+			cum_steps = cum_steps + plants_no;
+			water_amt = 3;
+			steps_taken = plants_no;
+		}
+		if (temp_plant_count == 0) {
+			steps_taken = 1;
+			far_cum_step_units = far_cum_step_units + steps_taken*water_amt;
+			
+			cout &lt;&lt; "FAUCET" &lt;&lt; setw(7) &lt;&lt; cum_steps &lt;&lt; setw(15) &lt;&lt; water_amt &lt;&lt; setw(15) &lt;&lt; far_cum_step_units &lt;&lt; endl;
+			break;
+		}
+		
+
+	}
+	cout &lt;&lt; endl;
+	cout &lt;&lt; "Plan Far: " &lt;&lt; "Total steps = " &lt;&lt; cum_steps &lt;&lt; ", total step-units = " &lt;&lt; far_cum_step_units &lt;&lt; endl;
+
+	/*** Complete the code for Plan Far. ***/
+	
+
+	// Which plan is better? Better means fewer step-units.
+	cout &lt;&lt; endl;
+	cout &lt;&lt; "*** With " &lt;&lt; plant_count &lt;&lt; " plants, ";
+
+	if (near_cum_step_units &lt;= far_cum_step_units) {
+		cout &lt;&lt; "Plan Near is better with " &lt;&lt; far_cum_step_units - near_cum_step_units &lt;&lt; " fewer step-units." &lt;&lt; endl;
+	}
+	else {
+		cout &lt;&lt; "Plan Far is better with " &lt;&lt; near_cum_step_units-far_cum_step_units &lt;&lt; " fewer step-units." &lt;&lt; endl;
+	}
+	/*** Complete the code to determine the better plan. ***/
+		}
+	} while (plant_count &gt; 0);
+
+	return 0;
+}
+</pre>
+<p class="header providedFiles">Provided files</p>
+<p class="caption">counts.txt:</p>
+<pre>5 6 7 0
+</pre>
+<p class="header score">Score</p>
+<p class="score">1/1</p>
+<p class="download"><a href="WateringPlans.signed.zip">Download</a></p>
+<div class="footnotes"><div class="footnote">2017-08-31T15:38:37Z</div>
+</div>
+</body></html>

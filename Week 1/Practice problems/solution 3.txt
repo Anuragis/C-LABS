@@ -1,0 +1,21 @@
+int inner_counter = n;
+	int current_count = 1;
+	 
+	while (n>0) {
+		
+		while (inner_counter > 0) {
+			inner_counter /= 10;
+			if (n % 10 == inner_counter % 10) {
+				current_count++;
+			}
+		}
+
+		if (current_count > result) {
+			result = current_count;
+		}
+
+		n /= 10;
+		inner_counter = n;
+		current_count = 1;
+	}
+	
